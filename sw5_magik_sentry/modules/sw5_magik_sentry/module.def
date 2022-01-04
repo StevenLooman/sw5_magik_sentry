@@ -1,0 +1,5 @@
+sw5_magik_sentry 1
+
+requires_java
+    magik_sentry
+end

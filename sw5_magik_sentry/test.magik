@@ -1,0 +1,18 @@
+_block
+    _local product_dir << system.pathname_up(!source_file!)
+    smallworld_product.add_product(product_dir)
+    sw_module_manager.load_module(:sw5_magik_sentry)
+_endblock
+$
+
+_block
+    _local dsn << system.getenv("SENTRY_DSN")
+    _local debug? << _true
+    magik_sentry.initialize(dsn, _unset, debug?)
+_endblock
+$
+
+_block
+    magik_sentry.capture_event("DEBUG", "Message")
+_endblock
+$
